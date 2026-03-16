@@ -3,8 +3,9 @@ name = "flight-price-prediction-using-aws-sagemaker"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.11,<3.13"
 dependencies = [
+    "altair<5",
     "feature-engine>=1.9.4",
     "matplotlib>=3.10.8",
     "numpy>=2.4.2",
@@ -13,7 +14,9 @@ dependencies = [
     "scipy>=1.17.1",
     "seaborn>=0.13.2",
     "statsmodels>=0.14.6",
+    "streamlit>=1.19.0",
     "wordcloud>=1.9.6",
+    "xgboost>=3.2.0",
 ]
 
 [dependency-groups]
