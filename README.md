@@ -3,7 +3,7 @@
 An end-to-end machine learning pipeline that predicts Indian domestic flight ticket prices, built to mirror a real production ML workflow: raw data → EDA → feature engineering → training on **AWS SageMaker** → deployment as an interactive **Streamlit** app.
 
 <p align="center">
-  <img src="assets/screenshots/app_ui.png" alt="Streamlit app predicting a flight price" width="850">
+  <img src="https://github.com/A-C-Sai/flight-price-prediction-using-aws-sagemaker/blob/main/screenshots/11.png" alt="Streamlit app predicting a flight price" width="850">
 </p>
 
 <p align="center">
@@ -51,7 +51,7 @@ A few of the patterns the EDA notebook (`notebooks/eda.ipynb`) surfaces, which d
 **Price varies a lot by airline**
 Jet Airways and Multiple Carriers command a premium over budget carriers like TruJet and SpiceJet — a strong candidate feature.
 
-<img src="assets/eda/airline_price_distribution.png" alt="Price distribution by airline">
+<img src="https://github.com/A-C-Sai/flight-price-prediction-using-aws-sagemaker/blob/main/screenshots/12.png" alt="Price distribution by airline">
 
 </td>
 <td width="50%">
@@ -59,7 +59,7 @@ Jet Airways and Multiple Carriers command a premium over budget carriers like Tr
 **Duration and stops are highly correlated with price**
 Spearman correlation shows `total_stops` (ρ = 0.72) and `duration` (ρ = 0.70) are the strongest numeric drivers of price.
 
-<img src="assets/eda/correlation_heatmap.png" alt="Spearman correlation heatmap">
+<img src="https://github.com/A-C-Sai/flight-price-prediction-using-aws-sagemaker/blob/main/screenshots/13.png" alt="Spearman correlation heatmap">
 
 </td>
 </tr>
@@ -69,7 +69,7 @@ Spearman correlation shows `total_stops` (ρ = 0.72) and `duration` (ρ = 0.70) 
 **Average price moves seasonally by source city**
 Prices out of Banglore and Delhi spike in March, then settle — useful signal for date-based features.
 
-<img src="assets/eda/monthly_price_by_city.png" alt="Average monthly price by source city">
+<img src="https://github.com/A-C-Sai/flight-price-prediction-using-aws-sagemaker/blob/main/screenshots/14.png" alt="Average monthly price by source city">
 
 </td>
 <td width="50%">
@@ -77,7 +77,7 @@ Prices out of Banglore and Delhi spike in March, then settle — useful signal f
 **Most tickets carry no extra info flags**
 ~78% of fares have no additional info, so this field was collapsed into a rare-label + binary "has info" signal rather than a large sparse category.
 
-<img src="assets/eda/additional_info_breakdown.png" alt="Additional info category breakdown">
+<img src="https://github.com/A-C-Sai/flight-price-prediction-using-aws-sagemaker/blob/main/screenshots/15.png" alt="Additional info category breakdown">
 
 </td>
 </tr>
@@ -104,7 +104,7 @@ A `SelectBySingleFeaturePerformance` step then prunes any engineered feature tha
 The trained pipeline runs entirely on AWS infrastructure rather than a local notebook:
 
 <p align="center">
-  <img src="assets/screenshots/sagemaker_training_job.png" alt="Completed SageMaker XGBoost training job" width="800">
+  <img src="https://github.com/A-C-Sai/flight-price-prediction-using-aws-sagemaker/blob/main/screenshots/07.png" alt="Completed SageMaker XGBoost training job" width="800">
 </p>
 
 - Preprocessed train / validation / test splits are pushed to an **S3** bucket.
@@ -112,7 +112,7 @@ The trained pipeline runs entirely on AWS infrastructure rather than a local not
 - The resulting `model.tar.gz` artifact and preprocessing objects land back in S3:
 
 <p align="center">
-  <img src="assets/screenshots/s3_model_artifacts.png" alt="Model artifacts and processed data in S3" width="800">
+  <img src="https://github.com/A-C-Sai/flight-price-prediction-using-aws-sagemaker/blob/main/screenshots/09.png" alt="Model artifacts and processed data in S3" width="800">
 </p>
 
 - `preprocessor.joblib` and `xgboost_model.json` are pulled down locally and loaded straight into the Streamlit app for inference.
